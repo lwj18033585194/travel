@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
         <ul>
-            <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item in recommendLists" :key="item.id">
                 <img class="item-img" :src="item.imgUrl" alt="loading">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -19,33 +19,11 @@
         name:'HomeRecommend',
         data(){
             return{
-                recommendList:[
-                    {
-                        id:"01",
-                        imgUrl:"http://img1.qunarzz.com/sight/p0/1805/78/789e31213399290fa3.water.jpg_256x160_c7b5500c.jpg",
-                        title:"白石山世界地质公园",
-                        desc:"壮观悬空玻璃道，抗日少年英雄山"
-                    },
-                    {
-                        id:"02",
-                        imgUrl:"http://img1.qunarzz.com/sight/p0/1412/f4/ceb0a95c3d11daee35c46eed064c4303.water.jpg_256x160_28947ac6.jpg",
-                        title:"清东陵",
-                        desc:"众多清朝帝王和皇后的宏伟陵墓建筑群"
-                    },
-                    {
-                        id:"03",
-                        imgUrl:"http://img1.qunarzz.com/sight/p0/1805/35/35d8ce88ca9b2488a3.water.jpg_256x160_1218274a.jpg",
-                        title:"山海关老龙头景区",
-                        desc:"人类历史上的千古奇观"
-                    },
-                    {
-                        id:"04",
-                        imgUrl:"http://img1.qunarzz.com/sight/p0/1905/5d/5dc13c7e0e84e887a3.img.jpg_256x160_93c939bc.jpg",
-                        title:"避暑山庄",
-                        desc:"皇家园林，京郊“小故宫”"
-                    }
-                ]
+                recommendList:[]
             }
+        },
+        props:{
+            recommendLists:Array
         }
     }
 </script>

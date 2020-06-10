@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper>
+        <swiper :options="swiperOption">
         <swiper-slide v-for="(page,index) of page" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
             <div class="icon-img">
@@ -18,59 +18,19 @@
         name:'HomeIcons',
         data (){
             return{
-                iconList:[
-                    {
-                        id:"1",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                        desc:"酒店"
-                    },
-                    {
-                        id:"2",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/flight.png",
-                        desc:"飞机票"
-                    },
-                    {
-                        id:"3",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/train.png",
-                        desc:"火车票"
-                    },
-                    {
-                        id:"4",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/package.png",
-                        desc:"旅游"
-                    },
-                    {
-                        id:"5",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/piao.png",
-                        desc:"景点门票"
-                    },
-                    {
-                        id:"6",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                        desc:"酒店"
-                    },
-                    {
-                        id:"7",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                        desc:"酒店"
-                    },
-                    {
-                        id:"8",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                        desc:"酒店"
-                    },
-                    {
-                        id:"9",
-                        imgUrl:"http://s.qunarzz.com/homenode/images/touchheader/hotel.png",
-                        desc:"酒店酒店酒店酒店酒店酒店酒店"
-                    }                                                                                                   
-                ]
+                iconList:[],
+                swiperOption:{
+                    autoPlay:false
+                }
             }
+        },
+        props:{
+            iconLists:Array
         },
         computed:{
             page(){
                 const pages=[];
-                this.iconList.forEach((item,index)=>{
+                this.iconLists.forEach((item,index)=>{
                     const page=Math.floor(index/8);
                     if(!pages[page]){
                         pages[page]=[]
