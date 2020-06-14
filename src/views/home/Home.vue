@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HomeHeader :city="city"></HomeHeader>
+        <HomeHeader></HomeHeader>
         <HomeSwiper :swiperLists="swiperList"></HomeSwiper>
         <HomeIcons :iconLists="iconList"></HomeIcons>
         <HomeRecommend :recommendLists="recommendList"></HomeRecommend>
@@ -20,7 +20,6 @@
         components:{HomeHeader,HomeSwiper,HomeIcons,HomeRecommend,HomeWeekend},
         data(){
             return {
-                city:'',
                 swiperList:[],
                 iconList:[],
                 recommendList:[],
@@ -35,7 +34,6 @@
             getHomeInfoSucc(res){
                 res=res.data
                 if(res.ret&&res.data){
-                    this.city=res.data.city;
                     this.swiperList=res.data.swiperList;
                     this.iconList=res.data.iconList;
                     this.recommendList=res.data.recommendList;
